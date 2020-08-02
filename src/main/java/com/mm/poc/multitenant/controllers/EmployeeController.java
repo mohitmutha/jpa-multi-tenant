@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.SQLException;
 import java.util.List;
 
-@RestController
+@RestController("/employees")
 public class EmployeeController {
   
   @Autowired
@@ -18,8 +18,8 @@ public class EmployeeController {
   
   @RequestMapping(value = "/", method = RequestMethod.POST)
   public ResponseEntity<?> save(@RequestBody Employee employee) {
-    employeeService.save(employee);
-    return new ResponseEntity<>(HttpStatus.OK);
+    Employee newEmployee = employeeService.save(employee);
+    return new ResponseEntity<>(newEmployee, HttpStatus.OK);
   }
   
   @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -34,15 +34,10 @@ public class EmployeeController {
     return new ResponseEntity<>(employee, HttpStatus.OK);
   }
   
-  @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-  public ResponseEntity<Employee> get(@PathVariable(value = "name") String name) {
-    Employee employee = employeeService.getByName(name);
-    return new ResponseEntity<>(employee, HttpStatus.OK);
-  }
   
-  @RequestMapping(value = "/{name}", method = RequestMethod.DELETE)
-  public ResponseEntity<Employee> delete(@PathVariable(value = "name") String name) {
-    employeeService.delete(name);
+  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+  public ResponseEntity<Employee> delete(@PathVariable(value = "id") Long id) {
+    employeeService.delete(id);
     return new ResponseEntity<>(HttpStatus.OK);
   }
 }

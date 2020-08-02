@@ -15,19 +15,12 @@ public class EmployeeService {
   private EmployeeRepository employeeRepository;
   
   
-  public void save(Employee employee){
-    employeeRepository.save(employee);
+  public Employee save(Employee employee){
+    return employeeRepository.save(employee);
   }
   
   public List<Employee> getAll() throws SQLException {
     return employeeRepository.findAll();
-        /*
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(tenantDataSource.getDataSource(TenantContext.getCurrentTenant()));
-        String sql = "SELECT * FROM city";
-        List<City> cities = jdbcTemplate.query(sql,
-                new BeanPropertyRowMapper(City.class));
-        return cities;
-        */
     
   }
   
@@ -39,7 +32,7 @@ public class EmployeeService {
     return employeeRepository.findByName(name);
   }
   
-  public void delete(String name){
-    employeeRepository.deleteByName(name);
+  public void delete(Long id){
+    employeeRepository.deleteById(id);
   }
 }
