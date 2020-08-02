@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Employee implements Serializable {
   private static final long serialVersionUID = -4551953276601557391L;
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   
   private String name;

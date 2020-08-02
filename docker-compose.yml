@@ -17,6 +17,11 @@ services:
       DATABASE_URL: jdbc:postgresql://db:5432/postgres
       DB_USERNAME: postgres
       DB_PASSWORD: mysecretpassword
-      MULTITENTANT_STRATEGY: SCHEMA
+      MULTITENTANT_STRATEGY: DATABASE
     ports:
       - 8080:8080
+  adminer:
+    image: adminer
+    ports:
+      - 9090:8080
+    restart: always
