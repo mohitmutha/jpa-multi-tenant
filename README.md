@@ -8,7 +8,7 @@ The code is mostly inspired from this [article](https://medium.com/swlh/multi-te
 
 ## Pre-Requisites ##
 1. Docker is installed 
-2. Ports 5432, 9090 and 8080 are free
+2. Ports 9090 and 8080 are free. Adminer runs on port 9090. Change the `docker-compose.yaml` in case this is not required. 
 
 ## Compiling the code and creating the image ##
 1. Run the below command to compile the code and create a docker container
