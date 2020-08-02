@@ -1,0 +1,12 @@
+
+## default connection pool
+app:
+  multitenantStrategy: ${MULTITENTANT_STRATEGY:DATABASE}
+spring:
+  datasource:
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+    url: jdbc:postgresql://db:5432/postgres
+    username: ${DB_USERNAME:"postgres"}
+    password: ${DB_PASSWORD:"mysecretpassword"}

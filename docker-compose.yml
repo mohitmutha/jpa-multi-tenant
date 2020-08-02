@@ -1,0 +1,22 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+    volumes:
+      - ./dbscripts:/docker-entrypoint-initdb.d
+  app:
+    image: mohitmutha/jpamultitenant
+    restart: always
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/postgres
+      DB_USERNAME: postgres
+      DB_PASSWORD: mysecretpassword
+      MULTITENTANT_STRATEGY: SCHEMA
+    ports:
+      - 8080:8080
