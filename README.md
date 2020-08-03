@@ -10,14 +10,30 @@ The code is mostly inspired from this [article](https://medium.com/swlh/multi-te
 1. Docker is installed 
 2. Ports 9090 and 8080 are free. Adminer runs on port 9090. Change the `docker-compose.yaml` in case this is not required. 
 
-## Compiling the code and creating the image ##
+## Compile and Run ##
+
+
+### Compiling the code and creating the image ###
+
+####
+### Note ###
+To use the DISCRIMINATOR strategy checkout the  `tenant-discriminator` branch
+####
+
 1. Run the below command to compile the code and create a docker container
 ```
     mvn clean jib:dockerBuild
 ```
 A docker image `mohitmutha/jpamultitenant` will be created
 
-## Running the code ##
+### Running the code ###
+
+####
+### Note ###
+- To use the DISCRIMINATOR strategy checkout the  `tenant-discriminator` branch
+- Ensure that docker image is built from the `tenant-discriminator` branch 
+####
+
 1. Locate the `docker-compose.yaml` located in the project root directory
 2. Change the line below to select a one of the above patterns
 ``` $yaml
