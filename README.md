@@ -16,7 +16,7 @@ The code is mostly inspired from this [article](https://medium.com/swlh/multi-te
 ### Compiling the code and creating the image ###
 
 ####
-### Note ###
+##### Note #####
 To use the DISCRIMINATOR strategy checkout the  `tenant-discriminator` branch
 ####
 
@@ -29,7 +29,7 @@ A docker image `mohitmutha/jpamultitenant` will be created
 ### Running the code ###
 
 ####
-### Note ###
+##### Note #####
 - To use the DISCRIMINATOR strategy checkout the  `tenant-discriminator` branch
 - Ensure that docker image is built from the `tenant-discriminator` branch 
 ####
